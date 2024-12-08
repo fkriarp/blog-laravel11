@@ -22,7 +22,7 @@ Route::get('/posts/{slug}', function ($slug) {
 Route::get('/about', function () {
     return view('about', ['name' => 'Fikri Akbar Pratama', 'title' => 'About']);
 })->name('about');
-
+ 
 Route::get('/contact', function () {
     return view('contact', ['title' => 'Contact']);
 })->name('contact');

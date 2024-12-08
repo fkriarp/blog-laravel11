@@ -26,10 +26,20 @@ class Post
         ];
     }
 
-    public static function find($slug) 
+    public static function find($slug): Array 
     {
-        return Arr::first(static::all(), function($post) use ($slug) {
-            return $post['slug'] == $slug;
-        });
+        // return Arr::first(static::all(), function($post) use ($slug) {
+        //     return $post['slug'] == $slug;
+        // });
+
+        // menggunakan arrow function | lebih singkat
+        $post = Arr::first(static::all(), fn ($post) => $post['slug'] == $slug);
+
+        // apabila slug yang dicari tidak ditemukan, maka akan menghasilkan halaman error 404
+        if (! $post) {
+            abort(404);
+        }
+
+        return $post;
     }
 }
