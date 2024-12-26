@@ -73,10 +73,15 @@
                     </div>
                 </article>
             @empty
-                    <h1 class="my-4 text-2xl font-semibold text-gray-500">Article not found.</h1>
-                    <a href="/posts" class="text-blue-600">&laquo; Back to all posts.</a>
+                <h1 class="my-4 text-2xl font-semibold text-gray-500">Article not found.</h1>
+                <a href="/posts" class="text-blue-600">&laquo; Back to all posts.</a>
             @endforelse
         </div>
+
+        <div class="mt-6">
+            {{ $posts->links() }}
+        </div>
+
     </div>
 
 </x-layout>
